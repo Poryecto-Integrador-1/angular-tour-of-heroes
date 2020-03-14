@@ -4,12 +4,13 @@ import { Hero } from './hero';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroService {
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = environment.API_URL + '/heroes';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
